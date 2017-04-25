@@ -1,7 +1,7 @@
 var app = angular.module('myApp', [ 'ui.bootstrap' ]);
 
 app.controller('myCtrl', function($scope, $http, $uibModal, $log, $document) {
-        $scope.queryName = "eminem";
+        $scope.queryName = "";
         $scope.errMsg = "";
 
         // function starts
