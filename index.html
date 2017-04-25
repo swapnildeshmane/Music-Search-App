@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+    <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>Music Search - Powered by Spotify</title>
+            <link href="style.css" type="text/css" rel="stylesheet" media="all">
+            <!-- <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,500,600,700' rel='stylesheet' type='text/css'> -->
+            <link href='Fonts/raleway/font-links.css' rel='stylesheet' type='text/css'>
+            <link href="modal-bootstrap.css" rel="stylesheet">
+
+            <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.1/angular.js"></script>
+            <script src="https://angular-ui.github.io/bootstrap/ui-bootstrap-tpls-2.5.0.min.js"> </script>
+            <script src="scripts.js"></script>
+
+    </head>
+    <body>
+        <div class="banner">
+                <div class="top-left">
+                                <img src="Images/gl-logo@2x.png" >
+                </div>
+                <div class="top-right">
+                                <p > Powered by Spotify </p>
+                </div>
+                <div class="center-image" >
+                                <img src="Images/hero-img@2x.png" >
+                </div>
+                <div class="page-down" >
+                                <a href="#search" style="margin: auto;">
+                                        <img src="Images/Page 1@2x.png" >
+                                </a>
+                </div>
+
+        </div>
+
+        <div id="search" class="search-results"  ng-app="myApp" ng-controller="myCtrl as $ctrl">                     <!-- ng-app starts here-->
+                <script type="text/ng-template" id="myModalContent.html">
+                        <!-- <div class="modal-header" ng-style="{'background-image': 'url( {{$ctrl.items.images[0].url}} )', 'background-size':'cover' }"> -->
+                        <div class="modal-header" >
+                                <img class="modal-header-img" src="{{$ctrl.items.images[0].url}}">
+                                <h1 class="modal-title" id="modal-title">{{$ctrl.items.name}}</h1>
+                                <img class="modal-title-X" src="Images/Cross@2x.png" ng-click="$ctrl.cancel()" style="width: 30px;">
+                        </div>
+                        <div class="modal-body" id="modal-body">
+                               <!-- for artist -->
+                               <div class="artists" ng-if=" $ctrl.items.type=='artist' ">
+                                        <div class="artists-albums">
+                                                <h3> Albums : </h3>
+                                                <ul>
+                                                        <li ng-repeat="alb in $ctrl.artistAlbum"> {{alb.name}} </li>
+                                                </ul>
+
+                                        </div>
+                               </div>
+
+                               <!-- for album -->
+                               <div class="albums" ng-if=" $ctrl.items.type=='album' ">
+                                        <div class="album-artists">
+                                                <h3> Artist : </h3>
+                                                <p> {{$ctrl.items.artists[0].name}} </p>
+                                                <h3> Tracks : </h3>
+                                                <ul>
+                                                        <li ng-repeat="trc in $ctrl.albumTracks"> {{trc.name}} </li>
+                                                </ul>
+                                        </div>
+                               </div>
+
+                               <!-- for track -->
+                               <div class="tracks" ng-if=" $ctrl.items.type=='track' ">
+                                        <div class="track-info">
+                                                <h3> Artists : </h3>
+                                                <p ng-repeat="artists in $ctrl.items.artists"> {{artists.name}} </p>
+                                                <h3> Album : </h3>
+                                                <p> {{$ctrl.items.album.name}} </p>
+                                                <h3> Duration : </h3>
+                                                <p> {{ $ctrl.durationT }} </p>
+                                                <h3> Popularity : </h3>
+                                                <p> {{$ctrl.items.popularity}} </p>
+                                        </div>
+                               </div>
+
+                               <!-- for playlist -->
+                               <div class="playlist" ng-if=" $ctrl.items.type=='playlist' ">
+                                        <div class="playlist-info">
+                                                <h3> Playlist : </h3>
+                                                <p> {{$ctrl.items.name}} </p>
+                                                <h3> Owner : </h3>
+                                                <p> {{$ctrl.items.owner.id}} </p>
+                                        </div>
+                               </div>
+
+                        </div>
+                </script>
+
+                <div class="search-outer-box">
+                        <div class="search-inner-box">
+                                <input type="text" id="query" name ="TxtBx1" placeholder="Search for artists" ng-model="queryName">
+                                <input type="submit" value="SEARCH" ng-click="searchArtists(queryName)">
+                        </div>
+                </div>
+
+                <div class="display-items">
+
+                        <h1>{{errMsg}}</h1>
+                        <!-- to show records -->
+
+                        <div class="items" ng-repeat="x in details.artists.items " ng-click="$ctrl.open(x)">
+                                <img class="items-img" src={{x.images[0].url}} height="264px" width="264px">
+                                <p class="items-p" > Artist: {{x.name}} </p>
+                        </div>
+
+                        <div class="items" ng-repeat="x in details.albums.items " ng-click="$ctrl.open(x)">
+                                <img class="items-img" src={{x.images[0].url}} height="264px" width="264px">
+                                <p class="items-p" > Album: {{x.name}} </p>
+                        </div>
+
+                        <div class="items" ng-repeat="x in details.tracks.items " ng-click="$ctrl.open(x)">
+                                <img class="items-img" src={{x.images[0].url}} height="264px" width="264px">
+                                <p class="items-p" > Track: {{x.name}} </p>
+                        </div>
+
+                        <div class="items" ng-repeat="x in details.playlists.items " ng-click="$ctrl.open(x)">
+                                <img class="items-img" src={{x.images[0].url}} height="264px" width="264px">
+                                <p class="items-p" > Playlist: {{x.name}} </p>
+                        </div>
+
+                </div>
+
+        </div>                                                                                     <!-- ng-app ends here-->
+
+        <div class="footer" >
+                <p>
+                        Designed by : YM  Powered by Spotify
+                </p>
+        </div>
+
+    </body>
+</html>
