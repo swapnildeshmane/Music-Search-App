@@ -181,7 +181,7 @@ input[type="submit"] {
             line-height: 6rem;
         }
         .center-image img {
-            width: 334px;
+            width: 100%;
             height: 243px;
         }
         .top-right p {
