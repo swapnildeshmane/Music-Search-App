@@ -147,7 +147,7 @@ input[type="submit"] {
     width: 300px;
 }
 
-@media only screen and (max-width: 360px) {
+@media only screen and (max-width: 320px) {
         .banner {
             min-height: 592px;
         }
@@ -158,15 +158,18 @@ input[type="submit"] {
             width: 80%;
         }
         input[type="submit"] {
-            right: 88px;
+            right: 75px;
             top: 78px;
         }
+        input[type="text"] {
+            width: 92%;
+        }
         .display-items {
-        padding: 24px ;
+        padding: 8px ;
         }
         .items {
-            width: 300px;
-            margin: 8px;
+            width: 280px;
+            margin: 12px;
         }
         .items-img {
             height: 90px;
@@ -175,13 +178,13 @@ input[type="submit"] {
 
         }
         .items-p {
-            width: 178px;
+            width: 158px;
             height: 90px;
             float: left;
             line-height: 6rem;
         }
         .center-image img {
-            width: 100%;
+            width: 320px;
             height: 243px;
         }
         .top-right p {
@@ -198,7 +201,48 @@ input[type="submit"] {
 
 }
 
-@media only screen and (max-width: 480px) and (min-width: 361px) {
+@media only screen and (min-width: 321px) and (max-width: 360px) {
+        .center-image img {
+            width: 340px;
+            height: 247px;
+        }
+        .search-outer-box {
+            height: 130px;
+        }
+        .search-inner-box {
+            width: 80%;
+        }
+        input[type="submit"] {
+            right: 95px;
+            top: 78px;
+        }
+        input[type="text"] {
+            width: 92%;
+        }
+
+        .display-items {
+        padding: 8px ;
+        }
+        .items {
+            width: 318px;
+            margin: 12px;
+        }
+        .items-img {
+            height: 90px;
+            width: 90px;
+            float: left;
+
+        }
+        .items-p {
+            width: 196px;
+            height: 90px;
+            float: left;
+            line-height: 6rem;
+        }
+
+}
+
+@media only screen and (min-width: 361px) and (max-width: 480px) {
         .center-image img {
             width: 420px;
             height: 305.5px;

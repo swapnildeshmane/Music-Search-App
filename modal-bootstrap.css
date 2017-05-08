@@ -165,6 +165,49 @@
     position: relative;
 }
 
+@media only screen and (max-width: 320px) {
+    .modal-header {
+        width: 298px;
+        height: 245px;
+    }
+    .modal-header-img {
+        width: 298px;
+        height: 245px;
+    }
+    .modal-title-X {
+        right: 0.5rem;
+        top: 0.5rem;
+    }
+
+}
+
 @media only screen and (max-width: 360px) {
+    .modal-header {
+        width: 340px;
+        height: 245px;
+    }
+    .modal-header-img {
+        width: 340px;
+        height: 245px;
+    }
+    .modal-title-X {
+        right: 0.5rem;
+        top: 0.5rem;
+    }
+
+}
+@media only screen and (max-width: 480px) {
+    .modal-header {
+        width: 460px;
+        height: 300px;
+    }
+    .modal-header-img {
+        width: 460px;
+        height: 300px;
+    }
+    .modal-title-X {
+        right: 0.5rem;
+        top: 0.5rem;
+    }
 
 }
