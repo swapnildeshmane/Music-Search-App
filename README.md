@@ -4,10 +4,10 @@ You can use the [editor on GitHub](https://github.com/swapnildeshmane/Music-Sear
 
 ### Languages used
 
-#### HTML
-#### CSS
-#### AngularJS
-#### BootStrap
+HTML
+CSS
+AngularJS
+BootStrap
 
 ### Purpose
 
